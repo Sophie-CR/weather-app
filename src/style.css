@@ -1,0 +1,40 @@
+body {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.location {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.current-weather {
+  font-size: 30pt;
+}
+.celsius-farenheit {
+  font-size: 16pt;
+}
+.details {
+  max-width: 278px;
+}
+ul {
+  font-size: 13pt;
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
+li {
+  margin-bottom: 8px;
+}
+.five-day {
+  font-size: 11pt;
+  margin-top: 20px;
+  max-width: 800px;
+}
+.dayLabel {
+  font-size: 14pt;
+  margin-bottom: 5px;
+}
+.dayIcon {
+  font-size: 24pt;
+}
