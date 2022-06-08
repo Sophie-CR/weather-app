@@ -2,34 +2,51 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.weather-app {
+  background: linear-gradient(
+    91.3deg,
+    rgb(135, 174, 220) 1.5%,
+    rgb(240, 240, 240) 100.3%
+  );
+  border: solid 1px #455d7a;
+  border-radius: 2%;
+  display: block;
+  margin: 0 auto;
+  max-width: 750px;
+  padding-left: 20px;
+  padding-right: 25px;
+}
+.card {
+  opacity: 0.8;
+  border-style: hidden;
+}
 .location {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 .current-weather {
   font-size: 30pt;
+  min-width: 220px;
 }
 .celsius-farenheit {
   font-size: 16pt;
 }
 .details {
-  max-width: 278px;
+  min-width: 220px;
 }
 ul {
-  font-size: 13pt;
+  font-size: 15pt;
   list-style: none;
   padding: 0;
   margin-top: 6px;
-  margin-bottom: 20px;
   margin-left: 5px;
 }
 li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .five-day {
-  font-size: 11pt;
+  font-size: 12pt;
   margin-top: 20px;
-  max-width: 800px;
 }
 .dayLabel {
   font-size: 14pt;
@@ -37,4 +54,7 @@ li {
 }
 .dayIcon {
   font-size: 24pt;
+}
+#open-source {
+  margin-top: 15px;
 }

@@ -29,29 +29,29 @@
                 autofocus="on"
               />
             </div>
-            <div class="col-1">
+            <div class="col-2">
               <input
                 id="search-btn"
                 type="submit"
-                value="Search"
+                value="🔎 Search"
                 class="btn btn-success shadow-sm"
               />
             </div>
-            <div class="col-3">
+            <div class="col-6">
               <button
                 id="use-location"
                 type="submit"
                 class="btn btn-primary shadow-sm"
                 style="width: 165px"
               >
-                Use My Location
+                📍 Use My Location
               </button>
             </div>
           </div>
         </form>
         <div class="row currentForecast">
-          <div class="col-sm-4">
-            <div class="card">
+          <div class="col-6">
+            <div class="card h-100">
               <div class="card-body">
                 <h2 class="current-city" id="current-city">London</h2>
                 <h5 class="current-time-date">:</h5>
@@ -66,8 +66,8 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <div class="card details">
+          <div class="col-6">
+            <div class="card details h-100">
               <div class="card-body">
                 <ul class="current-details">
                   <li id="wind">Wind: <span id="current-wind">23</span>km/h</li>
@@ -87,7 +87,7 @@
           </div>
         </div>
         <div class="row five-day">
-          <div class="col-sm-2 day">
+          <div class="col day">
             <label for="card-body" class="dayLabel" id="dayOne"
               >Wednesday</label
             >
@@ -98,7 +98,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-2 day">
+          <div class="col day">
             <label for="card-body" class="dayLabel" id="dayTwo">Thursday</label>
             <div class="card">
               <div class="card-body">
@@ -107,7 +107,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-2 day">
+          <div class="col day">
             <label for="card-body" class="dayLabel" id="dayThree">Friday</label>
             <div class="card">
               <div class="card-body">
@@ -116,7 +116,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-2 day">
+          <div class="col day">
             <label for="card-body" class="dayLabel" id="dayFour"
               >Saturday</label
             >
@@ -127,7 +127,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-2 day">
+          <div class="col day">
             <label for="card-body" class="dayLabel" id="dayFive">Sunday</label>
             <div class="card">
               <div class="card-body">
@@ -137,6 +137,12 @@
             </div>
           </div>
         </div>
+        <p id="open-source">
+          <a href="https://github.com/Sophie-CR/weather-app"
+            >Open source code</a
+          >
+          by Sophie Rosenberg
+        </p>
       </div>
     </div>
     <script src="src/index.js"></script>
