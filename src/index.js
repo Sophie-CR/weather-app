@@ -82,7 +82,7 @@ let replaceTemp = document.querySelector("#form");
 replaceTemp.addEventListener("submit", searchWeather);
 
 // GeoLocation Results
-function userTemp(response) {
+function userWeather(response) {
   let userCity = response.data.name;
   let displayCity = document.querySelector("#current-city");
   displayCity.innerHTML = `${userCity}`;
@@ -101,7 +101,7 @@ function useMyLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiGeoWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiGeoWeatherUrl}&appid=${apiKey}`).then(userTemp);
+  axios.get(`${apiGeoWeatherUrl}&appid=${apiKey}`).then(userWeather);
 }
 function userLocation(event) {
   event.preventDefault();
