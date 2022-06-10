@@ -8,8 +8,8 @@ body {
     rgb(135, 174, 220) 1.5%,
     rgb(240, 240, 250) 100.3%
   );
-  border: solid 1px #455d7a;
-  border-radius: 2%;
+  border: solid 1px #113f67;
+  border-radius: 1%;
   display: block;
   margin: 0 auto;
   max-width: 750px;
@@ -24,12 +24,17 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+#description::first-letter {
+  text-transform: capitalize;
+}
 .current-weather {
   font-size: 30pt;
   min-width: 220px;
 }
 .celsius-farenheit {
+  position: relative;
   font-size: 16pt;
+  top: -13px;
 }
 .details {
   min-width: 220px;
@@ -57,4 +62,7 @@ li {
 }
 #open-source {
   margin-top: 15px;
+}
+#open-source-link {
+  color: #113f67;
 }

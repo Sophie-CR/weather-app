@@ -53,12 +53,15 @@
           <div class="col-6">
             <div class="card h-100">
               <div class="card-body">
-                <h2 class="current-city" id="current-city">London</h2>
-                <h5 class="current-time-date">:</h5>
+                <h2 class="current-city">
+                  <span id="current-city">London</span>,
+                  <span id="current-country">GB</span>
+                </h2>
+                <h5 id="current-time-date"></h5>
                 <h6 id="description">Sunny</h6>
                 <p class="current-weather">
-                  ☀ <span class="temp" id="temp">22</span>°
-                  <span class="celsius-farenheit"
+                  ☀ <span class="temp float-left" id="temp">22</span>°
+                  <span class="celsius-farenheit float-left"
                     ><a href="#" id="celsius">C</a> |
                     <a href="#" id="farenheit">F</a></span
                   >
@@ -138,7 +141,10 @@
           </div>
         </div>
         <p id="open-source">
-          <a href="https://github.com/Sophie-CR/weather-app"
+          <a
+            href="https://github.com/Sophie-CR/weather-app"
+            target="blank"
+            id="open-source-link"
             >Open source code</a
           >
           by Sophie Rosenberg
