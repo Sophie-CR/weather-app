@@ -1,40 +1,40 @@
-let now = new Date();
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  return `${hour}:${minute} ${day} ${now.getDate()} ${month} ${now.getFullYear()}`;
 }
-let minute = now.getMinutes();
-if (minute < 10) {
-  minute = `0${minute}`;
-}
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-
-let displayTime = document.querySelector("#current-time-date");
-displayTime.innerHTML = `${hour}:${minute} ${day} ${now.getDate()} ${month} ${now.getFullYear()}`;
 
 let apiKey = "10c6e46bee088157ebfe63ac8c22ea67";
 
@@ -43,6 +43,14 @@ function getWeatherSearch(response) {
   searchLocationName.innerHTML = response.data.name;
   let searchLocationCountry = document.querySelector("#current-country");
   searchLocationCountry.innerHTML = response.data.sys.country;
+  let searchLocationTime = document.querySelector("#current-time-date");
+  searchLocationTime.innerHTML = formatDate(response.data.dt * 1000);
+  let searchLocationIcon = document.querySelector("#icon");
+  searchLocationIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  searchLocationIcon.setAttribute("alt", response.data.weather[0].description);
   let searchLocationTemp = document.querySelector("#temp");
   searchLocationTemp.innerHTML = Math.round(response.data.main.temp);
   let searchLocationDescription = document.querySelector("#description");
@@ -79,6 +87,14 @@ function userLocation(event) {
 }
 let currentLocationButton = document.querySelector("#use-location");
 currentLocationButton.addEventListener("click", userLocation);
+
+//Default
+function defaultWeather() {
+  let apiWeatherSearchUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric`;
+  axios.get(`${apiWeatherSearchUrl}&appid=${apiKey}`).then(getWeatherSearch);
+}
+
+window.onload = defaultWeather;
 
 // Convert Temperature
 function convertFarenheit(event) {
