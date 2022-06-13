@@ -50,7 +50,7 @@
           </div>
         </form>
         <div class="row currentForecast">
-          <div class="col-6">
+          <div class="col">
             <div class="card h-100">
               <div class="card-body">
                 <h2 class="current-city">
@@ -62,15 +62,15 @@
                 <p class="current-weather">
                   <img src="http://openweathermap.org/img/wn/01d@2x.png" id="icon" alt="Sunny"></img>
                   <span class="temp float-left" id="temp"></span>°
-                  <span class="celsius-farenheit float-left"
-                    ><a href="#" id="celsius">C</a> |
-                    <a href="#" id="farenheit">F</a></span
+                  <span class="celsius-fahrenheit float-left"
+                    ><a href="#" id="celsius-link" class="hidden">C</a> |
+                    <a href="#" id="fahrenheit-link">F</a></span
                   >
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col">
             <div class="card details h-100">
               <div class="card-body">
                 <ul class="current-details">
@@ -82,8 +82,8 @@
                     Humidity: <span id="current-humidity"></span>%
                   </li>
                   <li id="highLow">
-                    High/Low: <span id="current-high"></span>°c /
-                    <span id="current-low"></span>°c
+                    High/Low: <span id="current-high"></span> °<span id="current-unit-high" class="current-unit">C</span> /
+                    <span id="current-low"></span> °<span id="current-unit-low" class="current-unit">C</span>
                   </li>
                 </ul>
               </div>

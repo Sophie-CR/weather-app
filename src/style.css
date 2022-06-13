@@ -31,11 +31,21 @@ body {
   font-size: 30pt;
   min-width: 220px;
 }
-.celsius-farenheit {
+.celsius-fahrenheit {
   position: relative;
   font-size: 16pt;
   top: -13px;
 }
+.hidden {
+  color: #000;
+  cursor: default;
+  text-decoration: none;
+}
+.hidden:hover {
+  color: #000;
+  text-decoration: none;
+}
+
 .details {
   min-width: 220px;
 }
@@ -47,7 +57,10 @@ ul {
   margin-left: 5px;
 }
 li {
-  margin-bottom: 12px;
+  margin-bottom: 22px;
+}
+.current-unit {
+  font-size: 16px;
 }
 .five-day {
   font-size: 12pt;

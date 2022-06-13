@@ -51,8 +51,9 @@ function getWeatherSearch(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   searchLocationIcon.setAttribute("alt", response.data.weather[0].description);
+  celsiusTemp = Math.round(response.data.main.temp);
   let searchLocationTemp = document.querySelector("#temp");
-  searchLocationTemp.innerHTML = Math.round(response.data.main.temp);
+  searchLocationTemp.innerHTML = celsiusTemp;
   let searchLocationDescription = document.querySelector("#description");
   searchLocationDescription.innerHTML = response.data.weather[0].description;
   let searchLocationWind = Math.round(response.data.wind.speed);
@@ -60,9 +61,11 @@ function getWeatherSearch(response) {
   let searchLocationHumidity = Math.round(response.data.main.humidity);
   document.querySelector("#current-humidity").innerHTML =
     searchLocationHumidity;
-  let searchLocationTempHigh = Math.round(response.data.main.temp_max);
+  celsiusTempHigh = Math.round(response.data.main.temp_max);
+  let searchLocationTempHigh = celsiusTempHigh;
   document.querySelector("#current-high").innerHTML = searchLocationTempHigh;
-  let searchLocationTempLow = Math.round(response.data.main.temp_min);
+  celsiusTempLow = Math.round(response.data.main.temp_min);
+  let searchLocationTempLow = celsiusTempLow;
   document.querySelector("#current-low").innerHTML = searchLocationTempLow;
 }
 function searchWeather(event) {
@@ -94,18 +97,42 @@ function defaultWeather() {
 }
 window.onload = defaultWeather;
 
-function convertFarenheit(event) {
-  event.preventDefault();
-  let farenheit = document.querySelector("#temp");
-  farenheit.innerHTML = 63;
-}
-let replaceFarenheit = document.querySelector("#farenheit");
-replaceFarenheit.addEventListener("click", convertFarenheit);
+let celsiusTemp = null;
+let celsiusTempHigh = null;
+let celsiusTempLow = null;
 
-function convertCelsius(event) {
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheit = document.querySelector("#temp");
+  fahrenheit.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+  let currentHighF = document.querySelector("#current-high");
+  currentHighF.innerHTML = Math.round((celsiusTempHigh * 9) / 5 + 32);
+  let currentLowF = document.querySelector("#current-low");
+  currentLowF.innerHTML = Math.round((celsiusTempLow * 9) / 5 + 32);
+  let fahrenheitUnitHigh = document.querySelector("#current-unit-high");
+  fahrenheitUnitHigh.innerHTML = "F";
+  let fahrenheitUnitLow = document.querySelector("#current-unit-low");
+  fahrenheitUnitLow.innerHTML = "F";
+  replaceCelsius.classList.remove("hidden");
+  replaceFahrenheit.classList.add("hidden");
+}
+let replaceFahrenheit = document.querySelector("#fahrenheit-link");
+replaceFahrenheit.addEventListener("click", convertToFahrenheit);
+
+function convertToCelsius(event) {
   event.preventDefault();
   let celsius = document.querySelector("#temp");
-  celsius.innerHTML = 17;
+  celsius.innerHTML = celsiusTemp;
+  let currentHighC = document.querySelector("#current-high");
+  currentHighC.innerHTML = celsiusTempHigh;
+  let currentLowC = document.querySelector("#current-low");
+  currentLowC.innerHTML = celsiusTempLow;
+  let celsiusUnitHigh = document.querySelector("#current-unit-high");
+  celsiusUnitHigh.innerHTML = "C";
+  let celsiusUnitLow = document.querySelector("#current-unit-low");
+  celsiusUnitLow.innerHTML = "C";
+  replaceCelsius.classList.add("hidden");
+  replaceFahrenheit.classList.remove("hidden");
 }
-let replaceCelsius = document.querySelector("#celsius");
-replaceCelsius.addEventListener("click", convertCelsius);
+let replaceCelsius = document.querySelector("#celsius-link");
+replaceCelsius.addEventListener("click", convertToCelsius);
