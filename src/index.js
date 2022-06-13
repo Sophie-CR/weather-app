@@ -65,7 +65,7 @@ function getWeatherSearch(response) {
   let searchLocationTempLow = Math.round(response.data.main.temp_min);
   document.querySelector("#current-low").innerHTML = searchLocationTempLow;
 }
-function searchWeather(form) {
+function searchWeather(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   let city = searchInput.value;
@@ -88,15 +88,12 @@ function userLocation(event) {
 let currentLocationButton = document.querySelector("#use-location");
 currentLocationButton.addEventListener("click", userLocation);
 
-//Default
 function defaultWeather() {
   let apiWeatherSearchUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric`;
   axios.get(`${apiWeatherSearchUrl}&appid=${apiKey}`).then(getWeatherSearch);
 }
-
 window.onload = defaultWeather;
 
-// Convert Temperature
 function convertFarenheit(event) {
   event.preventDefault();
   let farenheit = document.querySelector("#temp");
