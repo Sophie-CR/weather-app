@@ -66,11 +66,14 @@ li {
   font-size: 12pt;
   margin-top: 20px;
 }
-.dayLabel {
+.forecast-unit {
+  font-size: 12px;
+}
+.day-label {
   font-size: 14pt;
   margin-bottom: 5px;
 }
-.dayIcon {
+.day-icon {
   font-size: 24pt;
 }
 #open-source {
