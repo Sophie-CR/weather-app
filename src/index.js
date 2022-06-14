@@ -101,8 +101,6 @@ defaultWeather();
 let celsiusTemp = null;
 let celsiusTempHigh = null;
 let celsiusTempLow = null;
-let forecastCelsiusTempHigh = null;
-let forecastCelsiusTempLow = null;
 
 function convertToFahrenheit(event) {
   event.preventDefault();
