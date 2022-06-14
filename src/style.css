@@ -12,7 +12,7 @@ body {
   border-radius: 1%;
   display: block;
   margin: 0 auto;
-  max-width: 750px;
+  max-width: 803px;
   padding-left: 20px;
   padding-right: 25px;
 }
@@ -66,15 +66,14 @@ li {
   font-size: 12pt;
   margin-top: 20px;
 }
-.forecast-unit {
+#forecast-unit-high,
+#forecast-unit-low {
   font-size: 12px;
 }
-.day-label {
+#day-label {
   font-size: 14pt;
   margin-bottom: 5px;
-}
-.day-icon {
-  font-size: 24pt;
+  margin-left: 10px;
 }
 #open-source {
   margin-top: 15px;

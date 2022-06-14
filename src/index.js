@@ -67,6 +67,7 @@ function getWeatherSearch(response) {
   celsiusTempLow = Math.round(response.data.main.temp_min);
   let searchLocationTempLow = celsiusTempLow;
   document.querySelector("#current-low").innerHTML = searchLocationTempLow;
+  getForecast(response.data.coord);
 }
 function searchWeather(event) {
   event.preventDefault();
@@ -100,6 +101,8 @@ defaultWeather();
 let celsiusTemp = null;
 let celsiusTempHigh = null;
 let celsiusTempLow = null;
+let forecastCelsiusTempHigh = null;
+let forecastCelsiusTempLow = null;
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -137,28 +140,55 @@ function convertToCelsius(event) {
 let replaceCelsius = document.querySelector("#celsius-link");
 replaceCelsius.addEventListener("click", convertToCelsius);
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecastData = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col day">
-            <label for="card-body" class="day-label" id="day-one"
-              >${day}</label
+  forecastData.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col day">
+            <label for="card-body" id="day-label" 
+              >${formatDay(forecastDay.dt)}</label
             >
             <div class="card">
               <div class="card-body">
-                <div class="day-icon" id="day-one-icon">🌦</div>
-                <div><span id="day-one-high">17</span>°<span class="forecast-unit">C</span> / <span id="day-one-low">10</span>°<span class="forecast-unit">C</span></div>
+                <div id="day-icon"><img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+        /></div>
+                <div><span id="forecast-high">${Math.round(
+                  forecastDay.temp.max
+                )}</span>°<span id="forecast-unit-high">C</span> / <span id="forecast-low">${Math.round(
+          forecastDay.temp.min
+        )}</span>°<span id="forecast-unit-low">C</span></div>
               </div>
             </div>
           </div>`;
+    }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
