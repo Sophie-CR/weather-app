@@ -95,7 +95,7 @@ function defaultWeather() {
   let apiWeatherSearchUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&units=metric`;
   axios.get(`${apiWeatherSearchUrl}&appid=${apiKey}`).then(getWeatherSearch);
 }
-window.onload = defaultWeather;
+defaultWeather();
 
 let celsiusTemp = null;
 let celsiusTempHigh = null;
@@ -136,3 +136,29 @@ function convertToCelsius(event) {
 }
 let replaceCelsius = document.querySelector("#celsius-link");
 replaceCelsius.addEventListener("click", convertToCelsius);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col day">
+            <label for="card-body" class="day-label" id="day-one"
+              >${day}</label
+            >
+            <div class="card">
+              <div class="card-body">
+                <div class="day-icon" id="day-one-icon">🌦</div>
+                <div><span id="day-one-high">17</span>°<span class="forecast-unit">C</span> / <span id="day-one-low">10</span>°<span class="forecast-unit">C</span></div>
+              </div>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
