@@ -167,11 +167,9 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col day">
-            <label for="card-body" id="day-label" 
-              >${formatDay(forecastDay.dt)}</label
-            >
             <div class="card">
               <div class="card-body">
+              <div id="day-label">${formatDay(forecastDay.dt)}</div>
                 <div id="day-icon"><img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon

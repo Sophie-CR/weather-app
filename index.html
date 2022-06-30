@@ -16,10 +16,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
+      <div class="weather-app box">
+        <div class="container-fluid">
         <form id="form">
           <div class="row location">
-            <div class="col-4">
+            <div class="col-sm-4 location-element search">
               <input
                 id="search-input"
                 type="text"
@@ -29,7 +30,7 @@
                 autofocus="on"
               />
             </div>
-            <div class="col-2">
+            <div class="col-sm-2 location-element">
               <input
                 id="search-btn"
                 type="submit"
@@ -37,19 +38,19 @@
                 value="🔍 Search"
               />
             </div>
-            <div class="col-6">
+            <div class="col-sm-6 location-element">
               <button
                 id="use-location"
                 type="submit"
                 class="btn btn-primary shadow-sm"
-                style="width: 165px"
               >
                 📍 Use My Location
               </button>
             </div>
           </div>
         </form>
-        <div class="row currentForecast">
+        </div>
+        <div class="row current-forecast">
           <div class="col">
             <div class="card h-100">
               <div class="card-body">
@@ -75,7 +76,6 @@
               <div class="card-body">
                 <ul class="current-details">
                   <li id="wind">Wind: <span id="current-wind"></span>km/h</li>
-
                   <li id="humidity">
                     Humidity: <span id="current-humidity"></span>%
                   </li>
@@ -88,16 +88,36 @@
             </div>
           </div>
         </div>
+        <div id="forecast-hourly" class="hourly">
+          <div class="row">
+            <div class="col hour">
+            <div class="card hourly-card">
+              <div class="card-body">
+               <div id="hour-label">15:00</div>
+               <div id="icon-hourly"><img src="http://openweathermap.org/img/wn/01d@2x.png" id="icon" alt="Sunny"></div>
+               <div class="temp-hourly"><span id="hourly-forecast-temp">30</span>°<span id="hourly-forecast-unit">C</span> </div>
+               <div class="description-hourly">Sunny</div>
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
         <div id="forecast" class="five-day"></div>
         <p id="open-source">
           <a
-            href="https://github.com/Sophie-CR/weather-app"
+            href="https://github.com/Sophie-CR/Portfolio-Website"
             target="blank"
             id="open-source-link"
             >Open source code</a
           >
           by Sophie Rosenberg
         </p>
+      </div>
+      <div class="box links">
+        <div class="row">
+          <div class="col-sm-6"><a href="https://lighthearted-kheer-cc90ec.netlify.app/" target="_blank" class="footer-links btn btn-success shadow-sm">View the original project</a></div>
+          <div class="col-sm-6"><a href="../../index.html" target="_blank" id="homepage" class="footer-links btn btn-success shadow-sm">Back to my portfolio homepage</a></div>
+      </div>
       </div>
     </div>
     <script src="src/index.js"></script>

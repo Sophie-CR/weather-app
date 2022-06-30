@@ -2,17 +2,18 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.weather-app {
+.box {
   background: linear-gradient(
     91.3deg,
     rgb(135, 174, 220) 1.5%,
     rgb(240, 240, 250) 100.3%
   );
   border: solid 1px #113f67;
-  border-radius: 1%;
+  border-radius: 5px;
   display: block;
   margin: 0 auto;
-  max-width: 803px;
+  margin-bottom: 30px;
+  max-width: 805px;
   padding-left: 20px;
   padding-right: 25px;
 }
@@ -21,8 +22,15 @@ body {
   border-style: hidden;
 }
 .location {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.search {
+  padding-left: 0;
+}
+.location-element {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 #current-time-date {
   font-size: 20px;
@@ -68,6 +76,17 @@ li {
 .current-unit {
   font-size: 16px;
 }
+.hourly-card {
+  font-size: 10pt;
+  margin-top: 30px;
+  text-align: center;
+}
+#hour-label {
+  font-size: 13pt;
+}
+#hourly-forecast-unit {
+  font-size: 8pt;
+}
 .five-day {
   font-size: 12pt;
   margin-top: 20px;
@@ -78,12 +97,18 @@ li {
 }
 #day-label {
   font-size: 14pt;
-  margin-bottom: 5px;
-  margin-left: 10px;
 }
 #open-source {
   margin-top: 15px;
 }
 #open-source-link {
   color: #113f67;
+}
+.footer-links {
+  color: #f0f0f0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.links {
+  text-align: center;
 }
